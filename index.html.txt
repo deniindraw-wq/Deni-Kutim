@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinas Perumahan Rakyat dan Kawasan Permukiman Kabupaten Kutai Timur</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f5f8fc;
+      color: #0b1f3f;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: #002b5c;
+      color: white;
+      padding: 10px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .topbar span {
+      margin-right: 22px;
+    }
+
+    .navbar {
+      background: white;
+      padding: 20px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0f8a3a, #f7c948);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      border: 4px solid #e6b800;
+    }
+
+    .brand h1 {
+      font-size: 24px;
+      line-height: 1.15;
+      color: #002b5c;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      color: #1b63b7;
+      font-weight: 700;
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .menu a {
+      padding: 8px 0;
+      border-bottom: 3px solid transparent;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      color: #0c55b7;
+      border-bottom-color: #0c55b7;
+    }
+
+    .hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      padding: 70px;
+      background: linear-gradient(90deg, rgba(245,248,252,0.96) 0%, rgba(245,248,252,0.78) 42%, rgba(245,248,252,0.08) 100%),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      line-height: 1.15;
+      text-transform: uppercase;
+      color: #002b5c;
+      margin-bottom: 18px;
+    }
+
+    .hero h3 {
+      font-size: 28px;
+      color: #0c55b7;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #1d2d44;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #002b5c;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      background: #0c55b7;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 40px 70px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-top: -55px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px 22px;
+      box-shadow: 0 8px 24px rgba(0, 43, 92, 0.09);
+      border: 1px solid #e4eaf2;
+      min-height: 180px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0, 43, 92, 0.15);
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #002b5c;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #37465a;
+      margin-bottom: 14px;
+    }
+
+    .card a {
+      color: #0c55b7;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .panel {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 8px 24px rgba(0, 43, 92, 0.08);
+      border: 1px solid #e4eaf2;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .panel-header h2 {
+      color: #002b5c;
+      font-size: 22px;
+    }
+
+    .panel-header a {
+      color: #0c55b7;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .news-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .news-item img {
+      width: 135px;
+      height: 105px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .date-box {
+      min-width: 52px;
+      background: #e8f1ff;
+      color: #0c55b7;
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .date-box strong {
+      display: block;
+      font-size: 22px;
+    }
+
+    .news-text h3 {
+      font-size: 16px;
+      color: #002b5c;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .news-text p {
+      font-size: 14px;
+      color: #42526b;
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .announcement-item {
+      padding: 16px 0;
+      border-bottom: 1px solid #e4eaf2;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .announcement-item:last-child {
+      border-bottom: none;
+    }
+
+    .file-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0c55b7;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .announcement-item h3 {
+      font-size: 15px;
+      color: #002b5c;
+      margin-bottom: 4px;
+    }
+
+    .announcement-item p {
+      font-size: 13px;
+      color: #667085;
+    }
+
+    .footer {
+      background: #002b5c;
+      color: white;
+      padding: 42px 70px 22px;
+      margin-top: 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    .footer h3 {
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    .footer p,
+    .footer a {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #dbeafe;
+      display: block;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 28px;
+      padding-top: 18px;
+      text-align: center;
+      font-size: 13px;
+      color: #dbeafe;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #002b5c;
+    }
+
+    @media (max-width: 1100px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .content-grid,
+      .news-list,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 10px 20px;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+      }
+
+      .navbar {
+        padding: 16px 20px;
+      }
+
+      .brand h1 {
+        font-size: 16px;
+      }
+
+      .brand p {
+        font-size: 12px;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+        font-size: 11px;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .menu {
+        position: absolute;
+        top: 86px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        display: none;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .hero {
+        padding: 50px 20px;
+        min-height: 360px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero h3 {
+        font-size: 20px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 30px 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+        margin-top: -35px;
+      }
+
+      .news-item {
+        flex-direction: column;
+      }
+
+      .news-item img {
+        width: 100%;
+        height: 180px;
+      }
+
+      .footer {
+        padding: 35px 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div>
+      <span>📍 Jl. AW. Syahranie, Bukit Pelangi, Sangatta, Kab. Kutai Timur</span>
+    </div>
+    <div>
+      <span>✉️ perkim@kutaitimurkab.go.id</span>
+      <span>☎️ (0549) 21012</span>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo">KUTIM</div>
+      <div>
+        <h1>Dinas Perumahan Rakyat<br />dan Kawasan Permukiman</h1>
+        <p>Kabupaten Kutai Timur</p>
+      </div>
+    </div>
+
+    <nav class="menu" id="menu">
+      <a class="active" href="#">Beranda</a>
+      <a href="#profil">Profil</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#informasi">Informasi</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#ppid">PPID</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <div class="mobile-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Dinas Perumahan Rakyat dan Kawasan Permukiman</h2>
+      <h3>Kabupaten Kutai Timur</h3>
+      <p>Mewujudkan perumahan dan permukiman yang layak, tertata, aman, dan berkelanjutan untuk masyarakat Kabupaten Kutai Timur.</p>
+      <a href="#profil" class="btn">Selengkapnya →</a>
+    </div>
+  </section>
+
+  <section class="section" id="layanan">
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🏠</div>
+        <h3>Perumahan</h3>
+        <p>Program dan informasi terkait penyediaan rumah layak huni bagi masyarakat.</p>
+        <a href="#">Selengkapnya →</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌿</div>
+        <h3>Permukiman</h3>
+        <p>Pengembangan kawasan permukiman yang sehat, aman, dan berkelanjutan.</p>
+        <a href="#">Selengkapnya →</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">📋</div>
+        <h3>Layanan</h3>
+        <p>Berbagai layanan administrasi dan informasi publik untuk masyarakat.</p>
+        <a href="#">Selengkapnya →</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">📥</div>
+        <h3>Publikasi</h3>
+        <p>Dokumen, laporan, regulasi, dan data yang dapat diunduh secara terbuka.</p>
+        <a href="#">Selengkapnya →</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">📣</div>
+        <h3>Pengaduan</h3>
+        <p>Sampaikan pengaduan atau aspirasi terkait layanan Dinas Perkim.</p>
+        <a href="#">Selengkapnya →</a>
+      </div>
+    </div>
+
+    <div class="content-grid" id="informasi">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Berita Terbaru</h2>
+          <a href="#">Lihat Semua →</a>
+        </div>
+
+        <div class="news-list">
+          <article class="news-item">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Rapat koordinasi" />
+            <div class="date-box"><strong>20</strong>Mei<br />2026</div>
+            <div class="news-text">
+              <h3>Rapat Koordinasi Program Perumahan Tahun 2026</h3>
+              <p>Rapat koordinasi bersama stakeholder terkait pelaksanaan program perumahan di wilayah Kutai Timur.</p>
+              <a href="#">Selengkapnya →</a>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Monitoring pembangunan" />
+            <div class="date-box"><strong>15</strong>Mei<br />2026</div>
+            <div class="news-text">
+              <h3>Monitoring Pembangunan Infrastruktur Permukiman</h3>
+              <p>Kegiatan monitoring pembangunan infrastruktur permukiman di beberapa kecamatan.</p>
+              <a href="#">Selengkapnya →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="panel-header">
+          <h2>Pengumuman</h2>
+          <a href="#">Lihat Semua →</a>
+        </div>
+
+        <div class="announcement-item">
+          <div class="file-icon">📄</div>
+          <div>
+            <h3>Perubahan Jadwal Pelayanan Hari Libur Nasional</h3>
+            <p>17 Mei 2026</p>
+          </div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="file-icon">📄</div>
+          <div>
+            <h3>Hasil Seleksi Administrasi Tenaga Kontrak</h3>
+            <p>14 Mei 2026</p>
+          </div>
+        </div>
+
+        <div class="announcement-item">
+          <div class="file-icon">📄</div>
+          <div>
+            <h3>Undangan Forum Perangkat Daerah Tahun 2026</h3>
+            <p>10 Mei 2026</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer" id="kontak">
+    <div class="footer-grid">
+      <div>
+        <h3>Dinas Perumahan Rakyat dan Kawasan Permukiman</h3>
+        <p>Kabupaten Kutai Timur</p>
+        <p>Melayani informasi dan kebutuhan masyarakat dalam bidang perumahan rakyat dan kawasan permukiman.</p>
+      </div>
+
+      <div>
+        <h3>Kontak Kami</h3>
+        <p>📍 Jl. AW. Syahranie, Bukit Pelangi, Sangatta</p>
+        <p>☎️ (0549) 21012</p>
+        <p>✉️ perkim@kutaitimurkab.go.id</p>
+      </div>
+
+      <div>
+        <h3>Tautan Cepat</h3>
+        <a href="#">Beranda</a>
+        <a href="#profil">Profil</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#informasi">Informasi</a>
+      </div>
+
+      <div>
+        <h3>Ikuti Kami</h3>
+        <p>Facebook • Instagram • YouTube</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Dinas Perumahan Rakyat dan Kawasan Permukiman Kabupaten Kutai Timur. Semua Hak Dilindungi.
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
